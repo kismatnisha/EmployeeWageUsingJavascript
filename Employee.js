@@ -1,4 +1,3 @@
-//UC6-stored Daily Wage
 const NUM_OF_WORKING_DAYS = 20;
 const MAX_HRS_IN_MONTH = 160;
 const IS_PART_TIME = 1;
@@ -34,3 +33,16 @@ while (totalEmpHrs <= MAX_HRS_IN_MONTH &&
 }
 let empWage = calculateDailyWage(totalEmpHrs);
 console.log("Total Days : " +totalWorkingDays+ "\tTotal Hours: "+totalEmpHrs+ "\tEmployee Wage: "+empWage);
+
+
+// Array Helper Function 
+let totEmpWage =0;
+function sum (dailyWage){
+    totEmpWage += dailyWage;
+}
+empDailyWageArr.forEach(sum);
+console.log("UC7A - Total Days :"+totalWorkingDays + "Total Hrs :" +totalEmpHrs + " Emp Wage: " + totEmpWage );
+function totalWages(totalWage,dailyWage){
+    return totalWage + dailyWage;
+}
+console.log("UC7A- Emp Wage With reduce :" + empDailyWageArr.reduce(totalWages, 0));
