@@ -1,63 +1,42 @@
-const NUM_OF_WORKING_DAYS = 20;
-const MAX_HRS_IN_MONTH = 160;
-const IS_PART_TIME = 1;
-const IS_FULL_TIME = 2;
-const PART_TIME_HOURS = 4;
-const FULL_TIME_HOUR = 8;
-const WAGE_PER_HOUR= 20;
-
-let empHrs=0;
-let totalEmpHrs=0;
-let totalWorkingDays = 0;
-let empDailyWageArr = new Array();
-let empDailyWageMap = new Map();
+class EmployePayrollData
+{//UC11
+    id;
+    salary;
+    
+    constructor(id,name,salary)
+    {
+        this.id=id;
+        this.name=name;
+        this.salary=salary;
+       
 
 
-function getworkingHours(empCheck) {
-    switch(empCheck) {
 
-        case IS_PART_TIME:
-            return PART_TIME_HOURS;
-        case IS_FULL_TIME:
-            return FULL_TIME_HOUR;
-        default:
-            return 0;
+    }
+    get name()
+    {
+        return this._name;
+
+    }
+    set name(name)
+    {
+        this._name=name;
+        
+    }
+    tostring()
+    {
+       
+        return "id = "+this.id+", name= "+this.name+", gender = "+this.salary;
+
+
     }
 }
-function calculateDailyWage(empHrs)
-{
-    return empHrs * WAGE_PER_HOUR;
-}
-// const findTotal=(totalVal,dailyVal)=>{
-//     return totalVal+dailyVal;
 
-// }
+    let employePayrollData=new EmployePayrollData(1,"mark",2300);
+    console.log(employePayrollData.tostring());
 
-while (totalEmpHrs <= MAX_HRS_IN_MONTH && 
-        totalWorkingDays < NUM_OF_WORKING_DAYS) 
-        {
-            totalWorkingDays++;
-            let empCheck = Math.floor(Math.random() * 10) % 3;
-            totalEmpHrs += getworkingHours(empCheck);
-            totalEmpHrs += empHrs;
-            //empDailyWageArr.push(calculateDailyWage(empHrs));
-            empDailyWageMap.set(totalWorkingDays, calculateDailyWage(empHrs));
-        
-            empDailyWageArr.push(
-         
-            {
-                dayNum:totalWorkingDays,
-                dailyHours:empHrs,
-                dailyWage:calculateDailyWage(empHrs),
-                toString(){
-                    return '\nDay' +this.dayNum+ "=> working hours is "+this.dailyHours+ "and wage earned ="+this.dailyWage
-                }
-            })
-        }
 
-        
-        console.log("uc-10 showing daily hours worked and wage earned =" +empDailyWageArr)
-       
+
 
 
 
